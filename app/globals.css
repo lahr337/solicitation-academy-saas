@@ -1,0 +1,443 @@
+@import "tailwindcss";
+
+@theme {
+  /* === FOUNDATION === */
+  --color-bg: #F6F1E8;
+  --color-surface: #FBF7EF;
+  --color-card: #FFFFFF;
+  --color-line: #E6DDCC;
+  --color-line-soft: #EDE5D4;
+
+  /* === INK (TEXT) === */
+  --color-ink: #1B1A17;
+  --color-ink-soft: #4A4742;
+  --color-ink-muted: #8A857C;
+
+  /* === BRAND === */
+  --color-primary: #B26B1F;
+  --color-primary-soft: #F4E4CC;
+  --color-primary-foreground: #FFFFFF;
+
+  /* === LEVEL ACCENTS === */
+  --color-sage: #5A7A5A;
+  --color-sage-soft: #DFE7D8;
+  --color-navy: #1F2D4A;
+  --color-navy-soft: #DDE2EA;
+  --color-rust: #9A3D1A;
+  --color-rust-soft: #F0D9CD;
+
+  /* === SHADCN SEMANTIC === */
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-ink);
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-ring: var(--color-primary);
+  --color-muted: var(--color-line-soft);
+  --color-muted-foreground: var(--color-ink-muted);
+  --color-accent: var(--color-primary-soft);
+  --color-accent-foreground: var(--color-primary);
+  --color-secondary: var(--color-surface);
+  --color-secondary-foreground: var(--color-ink);
+  --color-destructive: var(--color-rust);
+  --color-destructive-foreground: #FFFFFF;
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-ink);
+  --color-card-foreground: var(--color-ink);
+
+  /* === FONTS === */
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  /* === SPACING === */
+  --spacing-space-1: 4px;
+  --spacing-space-2: 8px;
+  --spacing-space-3: 12px;
+  --spacing-space-4: 16px;
+  --spacing-space-5: 20px;
+  --spacing-space-6: 24px;
+  --spacing-space-8: 32px;
+  --spacing-space-10: 40px;
+  --spacing-space-12: 48px;
+  --spacing-space-14: 56px;
+  --spacing-space-16: 64px;
+
+  /* === BORDER RADIUS === */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  --color-bg: #121110;
+  --color-surface: #1B1A17;
+  --color-card: #242220;
+  --color-line: #3A362D;
+  --color-line-soft: #2D2A24;
+  --color-ink: #F4ECD9;
+  --color-ink-soft: #C9BFA8;
+  --color-ink-muted: #867E6C;
+  --color-primary: #D4872E;
+  --color-primary-soft: #3A2818;
+  --color-sage: #7A9A7A;
+  --color-sage-soft: #2A3A2A;
+  --color-navy: #4A5D7A;
+  --color-navy-soft: #252D3A;
+  --color-rust: #C45D3A;
+  --color-rust-soft: #3A2018;
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-ink);
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-muted: var(--color-line-soft);
+  --color-muted-foreground: var(--color-ink-muted);
+  --color-accent: var(--color-primary-soft);
+  --color-accent-foreground: var(--color-primary);
+  --color-secondary: var(--color-surface);
+  --color-secondary-foreground: var(--color-ink);
+  --color-destructive: var(--color-rust);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-ink);
+  --color-card-foreground: var(--color-ink);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .display-xl {
+    font-family: var(--font-serif);
+    font-size: 54px;
+    line-height: 58px;
+    letter-spacing: -1.4px;
+    font-weight: 400;
+  }
+  .display-l {
+    font-family: var(--font-serif);
+    font-size: 46px;
+    line-height: 50px;
+    letter-spacing: -1.2px;
+    font-weight: 400;
+  }
+  .display-m {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.6px;
+    font-weight: 500;
+  }
+  .display-s {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: -0.1px;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .body-l {
+    font-size: 16.5px;
+    line-height: 27px;
+  }
+  .body-m {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .body-s {
+    font-size: 13.5px;
+    line-height: 20px;
+  }
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .numeric {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ============================================
+   LESSON CONTENT STYLES
+   ============================================ */
+
+.lesson-prose {
+  max-width: 640px;
+  color: var(--color-ink);
+}
+
+.lesson-prose .lesson-header {
+  margin-bottom: 40px;
+}
+
+.lesson-prose .level-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.lesson-prose h1 {
+  font-family: var(--font-serif);
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  font-weight: 400;
+  color: var(--color-ink);
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+.lesson-prose .lesson-intro {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 28px;
+  letter-spacing: -0.1px;
+  font-style: italic;
+  color: var(--color-ink-soft);
+  margin-bottom: 32px;
+}
+
+.lesson-prose h2 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.6px;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+
+.lesson-prose h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.lesson-prose h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.lesson-prose p {
+  font-size: 16.5px;
+  line-height: 27px;
+  color: var(--color-ink);
+  margin-bottom: 20px;
+  text-wrap: pretty;
+}
+
+.lesson-prose strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.lesson-prose em {
+  font-style: italic;
+}
+
+.lesson-prose ul,
+.lesson-prose ol {
+  margin: 20px 0;
+  padding-left: 24px;
+}
+
+.lesson-prose li {
+  font-size: 16.5px;
+  line-height: 27px;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.lesson-prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.lesson-prose .dollar-amount {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.lesson-prose .danger-term {
+  color: var(--color-rust);
+  font-weight: 500;
+}
+
+/* Callouts */
+.lesson-prose .callout {
+  margin: 28px 0;
+  padding: 18px 22px;
+  border-left: 2px solid;
+  max-width: 640px;
+}
+
+.lesson-prose .callout-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.lesson-prose .callout-text {
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.lesson-prose .callout.info {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+}
+.lesson-prose .callout.info .callout-title {
+  color: var(--color-primary);
+}
+.lesson-prose .callout.info .callout-text {
+  color: var(--color-ink-soft);
+}
+
+.lesson-prose .callout.success {
+  background: var(--color-sage-soft);
+  border-color: var(--color-sage);
+}
+.lesson-prose .callout.success .callout-title {
+  color: var(--color-sage);
+}
+.lesson-prose .callout.success .callout-text {
+  color: var(--color-ink-soft);
+}
+
+.lesson-prose .callout.warning {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+}
+.lesson-prose .callout.warning .callout-title {
+  color: var(--color-primary);
+}
+.lesson-prose .callout.warning .callout-text {
+  color: var(--color-ink-soft);
+}
+
+.lesson-prose .callout.danger {
+  background: var(--color-rust-soft);
+  border-color: var(--color-rust);
+}
+.lesson-prose .callout.danger .callout-title {
+  color: var(--color-rust);
+}
+.lesson-prose .callout.danger .callout-text {
+  color: var(--color-ink-soft);
+}
+
+/* Cards */
+.lesson-prose .card,
+.lesson-prose .card-dark,
+.lesson-prose .card-accent {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  padding: 20px 22px;
+  margin: 24px 0;
+}
+
+.lesson-prose .card-accent {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+}
+
+/* Tables */
+.lesson-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+.lesson-prose th {
+  text-align: left;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  border-bottom: 2px solid var(--color-line);
+}
+
+.lesson-prose td {
+  padding: 10px 12px;
+  color: var(--color-ink-soft);
+  border-bottom: 1px solid var(--color-line-soft);
+  vertical-align: top;
+}
+
+/* Solicitation section (code blocks) */
+.lesson-prose .sol-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-family: var(--font-mono);
+}
+
+.lesson-prose .section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.lesson-prose .section-content {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-ink);
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* Deep dive collapsible */
+.lesson-prose .deep-dive {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-line);
+}
